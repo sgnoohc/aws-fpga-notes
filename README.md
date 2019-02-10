@@ -1,5 +1,5 @@
 
-## Setting up T2
+## Setting up T2 (BAD)
     scp -i "AWSParis.pem" ~/.ssh/id_rsa centos@ec2-35-180-63-143.eu-west-3.compute.amazonaws.com:~/
     ssh -i "AWSParis.pem" centos@ec2-35-180-63-143.eu-west-3.compute.amazonaws.com
     mv id_rsa ~/.ssh/
@@ -11,9 +11,8 @@
     cd dot/
     source setup.sh
     git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR
-    sudo yum install -y xauth
-    sudo yum install -y xclock
-    sudo yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
+    sudo yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps xclock
     cd $AWS_FPGA_REPO_DIR; source sdaccel_setup.sh
     sudo yum update -y java
-# aws-fpga-notes
+## Just use https://www.xilinx.com/products/design-tools/acceleration-zone/aws.html#gettingstarted
+## aws-fpga-notes
