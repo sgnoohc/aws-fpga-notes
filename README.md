@@ -5,6 +5,7 @@ I use EBS of ~50 GB. the "src/project_data" is the area where the EBS sits. So p
     ssh -i AWS.pem centos@ec2-34-220-26-211.us-west-2.compute.amazonaws.com
     source <(curl -s https://s3.amazonaws.com/aws-fpga-developer-ami/1.5.0/Scripts/setup_gui.sh)
     # The above command creates a temporary passwords for 'centos' user so that one can log in via remote desktop
+    # Write the password down somewhere else (TODO figure out how to change the password)
     git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR  
     cd $AWS_FPGA_REPO_DIR                                         
     source sdaccel_setup.sh
@@ -39,8 +40,8 @@ I also tried running the command with sudo, but that actually messes up your set
     
 ## Connecting to Remote Desktop (RDP)
 
-I use [microsoft RDP][https://itunes.apple.com/us/app/microsoft-remote-desktop-8/id715768417?mt=12], which seems to work just fine.
-From the RDP app, add the IP address: 34.220.26.211, then connect, and use 'centos' user plus the temprorary password generated from the step [Setting up t2.xlarge]
+I use [microsoft RDP](https://itunes.apple.com/us/app/microsoft-remote-desktop-8/id715768417?mt=12), which seems to work just fine.
+From the RDP app, add the IP address: 34.220.26.211, then connect, and use 'centos' user plus the temprorary password generated from the step involving the command ```source <(curl -s https://s3.amazonaws.com/aws-fpga-developer-ami/1.5.0/Scripts/setup_gui.sh)```
     
 ## RTL Kernel Wizard
 
