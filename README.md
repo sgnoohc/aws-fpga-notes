@@ -42,6 +42,17 @@ I also tried running the command with sudo, but that actually messes up your set
 
 I use [microsoft RDP](https://itunes.apple.com/us/app/microsoft-remote-desktop-8/id715768417?mt=12), which seems to work just fine.
 From the RDP app, add the IP address: 34.220.26.211, then connect, and use 'centos' user plus the temprorary password generated from the step involving the command ```source <(curl -s https://s3.amazonaws.com/aws-fpga-developer-ami/1.5.0/Scripts/setup_gui.sh)```
+
+## Checking setup status
+
+Just few checks to see if things behave normally...
+Check whether the GUI works fine for SDAccel and Vivado
+
+    # Log in via RDP following instructions from previous section
+    # Then after logging in fire up the Terminal from the icon at the top of the menu bar in linux desktop
+    
+    sdx # check if it opens OK
+    
     
 ## RTL Kernel Wizard
 
@@ -53,7 +64,13 @@ To use GUI it is best to use the RDP connection described in previous section.
     # Assuming you are logged into RDP
     # Click at the icon that looks like a terminal at the top of the desktop
     # Then in the terminal issue the following command to start the SDAccel gui
-    sdx
+    cd $AWS_FPGA_REPO_DIR                                         
+    source sdaccel_setup.sh
+    sdx # if works fine close
+    vivado # if works fine then close
+    # if asked to set the workspace set it to ~/src/project_data/workspace # if directory does not exist create one
+    
+    
 Set the workspace to be under /home/centos/src/project_data/workspace, because ~/src/project_data is where your EBS is mounted on, and therefore has large disk space.
 Click Create SDx Project
 Select Application
@@ -70,7 +87,6 @@ There are 5 steps.
 Some info displayed. Click Next
 Set the Kernel name. (Choose wisely. and do not choose poorly.)
 Choose various things and once you finish this step, you'll get a Vivado project opened in Vivado. (Yay, the familiar Vivado and not this SDAccel thing...)
-
 
 ## Setting up t2.* instances (BAD) (Deprecated old way)
     scp -i "AWSParis.pem" ~/.ssh/id_rsa centos@ec2-35-180-63-143.eu-west-3.compute.amazonaws.com:~/
