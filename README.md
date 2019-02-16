@@ -31,6 +31,8 @@ I also tried running the command with sudo, but that actually messes up your set
     cd dot/
     source setup.sh
     chmod 600 .ssh/config # TODO I should add this to dot/setup.sh
+    # Setting up NeoBundle (TODO this should also go into dot/setup.sh)
+    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh; sh install.sh;
     
     # Checking out project source codes
     eval `ssh-agent`
