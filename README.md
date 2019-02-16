@@ -48,10 +48,29 @@ From the RDP app, add the IP address: 34.220.26.211, then connect, and use 'cent
 RTL Kernel Wizard sets you up with RTL Kernel template vivado project.
 The peripherals defined from the RTL Kernel Wizard takes care of the basic kernel requirements for you and generate I/O related codes.
 So the user can focus on adding the core kernel functions only.
+To use GUI it is best to use the RDP connection described in previous section.
 
-    # to start fire up the gui
+    # Assuming you are logged into RDP
+    # Click at the icon that looks like a terminal at the top of the desktop
+    # Then in the terminal issue the following command to start the SDAccel gui
     sdx
-    
+Set the workspace to be under /home/centos/src/project_data/workspace, because ~/src/project_data is where your EBS is mounted on, and therefore has large disk space.
+Click Create SDx Project
+Select Application
+Create Project name
+Add Platform
+Select /home/centos/src/project_data/aws-fpga/SDAccel/aws_platform/xilinx_aws-vu9p-f1-04261818_dynamic_5_0
+OK
+Next. Next.
+Empty Application
+Finish
+At the top, from the menubar, Xilinx->RTL Kernel Wizard...
+If running for the first time, wait a while... it takes time.
+There are 5 steps.
+Some info displayed. Click Next
+Set the Kernel name. (Choose wisely. and do not choose poorly.)
+Choose various things and once you finish this step, you'll get a Vivado project opened in Vivado. (Yay, the familiar Vivado and not this SDAccel thing...)
+
 
 ## Setting up t2.* instances (BAD) (Deprecated old way)
     scp -i "AWSParis.pem" ~/.ssh/id_rsa centos@ec2-35-180-63-143.eu-west-3.compute.amazonaws.com:~/
