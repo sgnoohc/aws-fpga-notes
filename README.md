@@ -90,6 +90,28 @@ Some info displayed. Click Next
 Set the Kernel name. (Choose wisely. and do not choose poorly.)
 Choose various things and once you finish this step, you'll get a Vivado project opened in Vivado. (Yay, the familiar Vivado and not this SDAccel thing...)
 
+## Some errors that I encountered
+
+### When it failes because .sdb file in /opt is not writable or something...
+
+https://forums.xilinx.com/t5/SDAccel/Launch-Simulation-Failure-for-kernel-generated-using-RTL-Kernel/td-p/874399
+Updated the compile order to automatic and it worked...
+I think I broke it when I added the .wcfg file to the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Setting up t2.* instances (BAD) (Deprecated old way)
     scp -i "AWSParis.pem" ~/.ssh/id_rsa centos@ec2-35-180-63-143.eu-west-3.compute.amazonaws.com:~/
     ssh -i "AWSParis.pem" centos@ec2-35-180-63-143.eu-west-3.compute.amazonaws.com
